@@ -8,7 +8,7 @@ from detect_visage.app.detect import DetectVisage
 
 
 def usage():
-    print("python -m detect_visage.run -i <chemoon_vers_image>")
+    print("python -m detect_visage.run -i <chemin_vers_image>")
     print("ou")
     print("python -m detect_visage.run --image <chemin_vers_image>")
 

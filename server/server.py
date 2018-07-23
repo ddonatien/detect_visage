@@ -3,8 +3,6 @@ import subprocess
 from flask import Flask, render_template, request
 from flask_uploads import IMAGES, UploadSet, configure_uploads
 
-#from detect_visage.app.detect import DetectVisage
-
 app = Flask(__name__)
 
 photos = UploadSet('photos', IMAGES)
@@ -20,8 +18,7 @@ def upload():
         filename = photos.save(request.files['photo'])
         return subprocess.check_output([
             'python2', '-m', 'detect_visage.run', '-i',
-            '/home/ddelehel/projets_perso/detect_visage/server/static/img/' +
-            filename
+            'static/img/' + filename
         ])
 
 

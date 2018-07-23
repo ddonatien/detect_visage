@@ -15,9 +15,9 @@ class DetectVisage:
 
     def __init__(self):
         self.filtre = ''
-        self.load_model()
+        self.charge_model()
 
-    def load_model(self):
+    def charge_model(self):
         """
         Cette methode charge le modele de detection dans une variable de notre classe DetectVisage
         """

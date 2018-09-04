@@ -1,4 +1,5 @@
-import subprocess
+from lib.rpc import Rpc
+import os
 
 from flask import Flask, render_template, request
 from flask_uploads import IMAGES, UploadSet, configure_uploads
@@ -16,10 +17,10 @@ def upload():
     # detector = DetectVisage()
     if 'photo' in request.files:
         filename = photos.save(request.files['photo'])
-        return subprocess.check_output([
-            'python2', '-m', 'detect_visage.run', '-i',
-            'static/img/' + filename
-        ])
+        rpc = Rpc()
+        return rpc.call(
+            os.path.dirname(os.path.realpath(__file__)) + "/static/img/" +
+            filename)
 
 
 @app.route('/')

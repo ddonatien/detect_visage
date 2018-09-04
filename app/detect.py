@@ -34,6 +34,7 @@ class DetectVisage:
           path_image : chemin vers l'image sur laquelle on souhaite faire une detection
         """
 
+        print(path_image)
         image = cv2.imread(path_image)
         image_niveaux_gris = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         face = self.filtre.detectMultiScale(image_niveaux_gris)
